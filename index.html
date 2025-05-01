@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viggo's Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1A365D;
+            --secondary: #2ED573;
+            --background: #f1f2f6;
+            --text: #2f3542;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        /* Navbar Responsif */
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Section Umum */
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        /* Landing Page */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        /* Game Favorit */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        /* Anime Favorit */
+        .anime-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .anime-card img {
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        /* Projek */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Form Pesan */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .anime-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .anime-card img {
+                width: 100%;
+            }
+        }
+        /* Tambahan CSS */
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+    transform: scale(1.02);
+}
+
+.project-card a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: all 0.3s;
+}
+
+.project-card a:hover {
+    color: var(--secondary);
+    transform: translateX(5px);
+}
+
+.hamburger.active {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-links a {
+        padding: 0.8rem;
+    }
+    
+    .hero {
+        padding-top: 60px;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Viggo Hidalgo</h2>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#info">Info</a></li>
+            <li><a href="#game">Game</a></li>
+            <li><a href="#anime">Anime</a></li>
+            <li><a href="#project">Projek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <!-- Landing Page -->
+    <section id="home" class="hero">
+        <img src="fotoviggohd.jpg" alt="Foto Profil" class="profile-img">
+        <h1>Hi! Welcome to my personal website</h1>
+        <p>I'm a student</p>
+        <div class="social-links">
+            <a href="https://www.tiktok.com/@viggofc10?_t=ZS-8vzLbjeSPiy&_r=1"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/vigs763?igsh=Y2o3OTdyNmhudDZs"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <!-- Informasi Umum -->
+    <section id="info" class="info-section">
+        <h2 class="section-title">Informasi Umum</h2>
+        <div class="game-grid">
+            <div class="game-card">
+                <h3>Nama Lengkap</h3>
+                <p>Viggo Abellera Hidalgo</p>
+            </div>
+            <div class="game-card">
+                <h3>Usia</h3>
+                <p>15 Tahun</p>
+            </div>
+            <div class="game-card">
+                <h3>Tanggal Lahir</h3>
+                <p>06 Februari 2010</p>
+            </div>
+            <div class="game-card">
+                <h3>Agama</h3>
+                <p>Kristen</p>
+            </div>
+            <div class="game-card">
+                <h3>Hobi</h3>
+                <p>Main Game</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Favorit -->
+    <section id="game" class="game-section">
+        <h2 class="section-title">Game Favorit</h2>
+        <div class="game-grid">
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>FC Mobile</h3>
+                <p>Nickname: ViggoTamvan</p>
+                <p>Alasan: Seru</p>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-chess-queen"></i>
+                <h3>Clash of Clans</h3>
+                <p>Nickname: Viggo</p>
+                <p>Alasan: Butuh Strategi </p>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Legends</h3>
+                <p>Nickname: VigsTzy</p>
+                <p>Alasan: Seru</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anime Favorit -->
+    <section id="anime" class="anime-section">
+        <h2 class="section-title">Anime Favorit</h2>
+        <div class="anime-card">
+            <img src="conan.jpeg" alt="Detective Conan">
+            <div>
+                <h3>Detective Conan</h3>
+                <p>Ceritanya menarik, ada banyak pelajaran yang bisa diambil.</p>
+                <p>Karakter Favorit: Conan Edogawa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projek -->
+    <section id="project" class="project-section">
+        <h2 class="section-title">Projek Saya</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Personal Website 1</h3>
+                <p>Website pertama yang saya buat, ada campur tangan Chat GPT</p>
+                <a href="https://viggo2100.github.io/Viggoril1/webbaru.html">Lihat Projek →</a>
+            </div>
+            <div class="project-card">
+                <h3>Homestay</h3>
+                <p>Bisnis Keluarga saya, Murni tanpa AI</p>
+                <a href="https://indahriverside.github.io/indahriverside/">Lihat Projek →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Pesan -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Pesan</h2>
+        <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="Nama Anda" id="name">
+            <textarea placeholder="Pesan Anda" id="message" rows="5"></textarea>
+            <button type="submit" class="whatsapp-btn">Kirim ke WhatsApp</button>
+        </form>
+    </section>
+
+        <script>
+        // Toggle Menu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Tutup menu mobile setelah klik
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // WhatsApp Integration
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const formattedMessage = `Halo namaku adalah ${name}, ${message}`;
+            const whatsappUrl = `https://wa.me/6283805915597?text=${encodeURIComponent(formattedMessage)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Animasi Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Element yang akan di-animasi
+        const animatedElements = document.querySelectorAll(
+            '.game-card, .project-card, .anime-card, .info-section .game-card'
+        );
+        
+        animatedElements.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            observer.observe(el);
+        });
+
+        // Tutup menu saat klik di luar
+        document.addEventListener('click', function(e) {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!e.target.closest('.navbar') && window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Efek hover untuk card
+        document.querySelectorAll('.game-card, .project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
